@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider.jsx";
 import Header from "../components/header.jsx";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 const interFont = Inter({subsets : ["latin"]});
 
@@ -13,7 +14,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{
+      baseTheme:dark
+    }}>
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${interFont.className}`}
